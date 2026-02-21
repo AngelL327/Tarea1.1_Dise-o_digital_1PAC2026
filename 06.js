@@ -1,14 +1,23 @@
-function contarPalabras(arreglo) {
-  return arreglo.reduce((acc, palabra) => {
-    if (!acc[palabra]) {
-      acc[palabra] = 0;
+// numero 6
+function combinarListasSinRepetir(lista1, lista2) {
+  const resultado = [];
+
+  for (let i = 0; i < lista1.length; i++) {
+    if (resultado.indexOf(lista1[i]) === -1) {
+      resultado.push(lista1[i]);
     }
-    acc[palabra]++;
-    return acc;
-  }, {});
+  }
+
+  for (let j = 0; j < lista2.length; j++) {
+    if (resultado.indexOf(lista2[j]) === -1) {
+      resultado.push(lista2[j]);
+    }
+  }
+
+  return resultado;
 }
 
-const palabras = ['hola', 'adiós', 'hola', 'gracias', 'hola', 'gracias'];
+const lista1 = ['manzana', 'pera', 'banana'];
+const lista2 = ['pera', 'uva', 'manzana', 'sandía'];
 
-const resultado7 = contarPalabras(palabras);
-console.log(resultado7);
+console.log(combinarListasSinRepetir(lista1, lista2));
