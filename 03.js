@@ -1,7 +1,12 @@
+// numero 3
 function promedioPonderado(lista) {
-  return lista.reduce((acc, item) => {
-    return acc + item.valor * item.peso;
-  }, 0);
+  let suma = 0;
+
+  for (let i = 0; i < lista.length; i++) {
+    suma += lista[i].valor * lista[i].peso;
+  }
+
+  return suma;
 }
 
 const notas = [
@@ -10,5 +15,4 @@ const notas = [
   { valor: 70, peso: 0.2 }
 ];
 
-const resultado3 = promedioPonderado(notas);
-console.log(resultado3);
+console.log(promedioPonderado(notas));
