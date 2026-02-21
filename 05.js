@@ -1,12 +1,18 @@
+// numero 5
 function eliminarDuplicados(arreglo, propiedad) {
-  const vistos = new Set();
-  return arreglo.filter((item) => {
-    if (vistos.has(item[propiedad])) {
-      return false;
+  const resultado = [];
+  const usados = {};
+
+  for (let i = 0; i < arreglo.length; i++) {
+    const valor = arreglo[i][propiedad];
+
+    if (!usados[valor]) {
+      usados[valor] = true;
+      resultado.push(arreglo[i]);
     }
-    vistos.add(item[propiedad]);
-    return true;
-  });
+  }
+
+  return resultado;
 }
 
 const elementos = [
@@ -15,5 +21,4 @@ const elementos = [
   { id: 1, nombre: 'A' }
 ];
 
-const resultado5 = eliminarDuplicados(elementos, 'id');
-console.log(resultado5);
+console.log(eliminarDuplicados(elementos, 'id'));
